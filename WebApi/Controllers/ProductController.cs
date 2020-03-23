@@ -60,7 +60,7 @@ namespace WebApi.Controllers
                 if (product != null)
                     return Request.CreateResponse(HttpStatusCode.OK, product);
 
-                throw new ApiDataException(1001, "Currently No available for this id.", HttpStatusCode.NotFound);
+                throw new ApiDataException(1001, "Currently No products are available for this id.", HttpStatusCode.NotFound);
             }
             throw new ApiException() { ErrorCode = (int)HttpStatusCode.BadRequest, ErrorDescription = "Bad Request..." };
         }
