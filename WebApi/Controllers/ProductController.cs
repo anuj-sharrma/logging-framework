@@ -45,7 +45,7 @@ namespace WebApi.Controllers
             var productEntities = products as List<ProductEntity> ?? products.ToList();
             if (productEntities.Any())
                 return Request.CreateResponse(HttpStatusCode.OK, productEntities);
-            throw new ApiDataException(1000, "Products not found", HttpStatusCode.NotFound);
+            throw new ApiDataException(1000, "Products are not found", HttpStatusCode.NotFound);
         }
 
         // GET api/product/5
@@ -60,7 +60,7 @@ namespace WebApi.Controllers
                 if (product != null)
                     return Request.CreateResponse(HttpStatusCode.OK, product);
 
-                throw new ApiDataException(1001, "No product found for this id.", HttpStatusCode.NotFound);
+                throw new ApiDataException(1001, "Currently No product are available for this id.", HttpStatusCode.NotFound);
             }
             throw new ApiException() { ErrorCode = (int)HttpStatusCode.BadRequest, ErrorDescription = "Bad Request..." };
         }
